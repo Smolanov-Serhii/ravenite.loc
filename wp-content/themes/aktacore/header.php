@@ -19,6 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;900&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
+
 </head>
 <script>
     window.onload = function () {
@@ -37,8 +38,8 @@
         <div class="preloader__item"></div>
     </div>
 </div>
-<?php wp_body_open(); ?>
-<div id="page" class="site">
+
+
 	<header id="header" class="header default">
         <div class="header__container big-container">
             <div class="header__logo">
