@@ -10,6 +10,14 @@ $(document).ready(function () {
         }
     });
 
+    $("#header__nav, #footer__nav").on("click","a", function (event) {
+        event.preventDefault();
+        var id  = $(this).attr('href'),
+            top = $(id).offset().top;
+        $('body,html').animate({scrollTop: top - 70}, 1000);
+    });
+
+
     AOS.init({
         // Global settings:
         disable: false, // accepts following values: 'phone', 'tablet', 'mobile', boolean, expression or function
@@ -31,70 +39,16 @@ $(document).ready(function () {
 
     });
 
-    if ($("#map").length){
-        function initMap() {
-            var element = document.getElementById('map');
-            var options = {
-                zoom: 12,
-                mapId: "fe6c29d69dc8d295",
-                center: {lat:  46.58499387932818, lng: 6.603990154721755},
-            };
 
-            var myMap = new google.maps.Map(element, options);
-
-            var markers = [
-                {
-                    coordinates: {lat: 46.58499387932818, lng: 6.603990154721755},
-                    // info: '<h3>Москва</h3><br><img src="https://placehold.it/200x150"><br><p>Описание</p>'
-                },
-                // {
-                //     coordinates: {lat: 59.940208, lng: 30.328092},
-                //     info: '<h3>Санкт-Петербург</h3><br> <img src="https://placehold.it/200x150"><br><p>Описание</p>'
-                // },
-                // {
-                //     coordinates: {lat: 50.449973, lng: 30.524911},
-                //     info: '<h3>Киев</h3><br><img src="https://placehold.it/200x150"><br><p>Описание</p>'
-                // }
-            ];
-
-            for(var i = 0; i < markers.length; i++) {
-                addMarker(markers[i]);
-            }
-
-            function addMarker(properties) {
-                var IconImg = $('#map').data('marker');
-                var marker = new google.maps.Marker({
-                    position: properties.coordinates,
-                    icon: IconImg,
-                    map: myMap
-                });
-
-                if(properties.image) {
-                    marker.setIcon(properties.image);
-                }
-
-                if(properties.info) {
-                    var InfoWindow = new google.maps.InfoWindow({
-                        content: properties.info
-                    });
-
-                    marker.addListener('click', function(){
-                        InfoWindow.open(myMap, marker);
-                    });
-                }
-            }
-        }
-        initMap();
-    }
-
-    if ($("section.team").length){
-        $(".team__item-header").click(function () {
-            $(this).closest('.team__item').toggleClass('active').find('.team__item-wrapper').fadeToggle(300);
-        });
-    }
     if ($(".header__burger").length){
         $(".header__burger").click(function () {
             $('body').toggleClass('locked');
+            $('header').toggleClass('mobile-menu');
+            $('.header__mobile-menu').toggleClass('active');
+        });
+        $(".header__mobile-menu a").click(function () {
+            $('body').toggleClass('locked');
+            $('header').toggleClass('mobile-menu');
             $('.header__mobile-menu').toggleClass('active');
         });
         $(".header__mobile-menu .menu-item-has-children > a").click(function () {
@@ -109,21 +63,6 @@ $(document).ready(function () {
         }
     }
 
-    if ($(".reasons-main").length){
-        $(".reasons-main__item").click(function () {
-            $('.center-image').fadeOut(500);
-            var CurrentElement = $(this).data('item');
-            var ImageElement = $(this).data('image');
-            $('.reasons-main__wrapper').removeClass('rotate-position-item1').removeClass('rotate-position-item2').removeClass('rotate-position-item3').removeClass('rotate-position-item4');
-            $('.reasons-main__item').removeClass('active');
-            $(this).addClass('active');
-            $('.reasons-main__wrapper').addClass('rotate-position-' + CurrentElement + '');
-            setTimeout(function() {
-                $('.center-image').attr('src', '' + ImageElement + '');
-                $('.center-image').fadeIn(500);
-            }, 500);
-        });
-    }
 
     if ($(".banner-photo").length){
         $(".banner-photo__img-click").click(function () {
@@ -140,6 +79,55 @@ $(document).ready(function () {
             }, 3800);
             if (window.innerWidth < 501) {
 
+            }
+        });
+    }
+
+    if ($(".banner").length){
+        var Bannerswiper = new Swiper(".banner .swiper-container", {
+            slidesPerView: 1,
+            spaceBetween: 0,
+            loop: true,
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            navigation: {
+                nextEl: ".banner-next",
+                prevEl: ".banner-prev",
+            },
+        });
+    }
+
+    if ($(".partners").length){
+        var PartnersSwiper = new Swiper(".partners .swiper-container", {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            loop: true,
+            allowTouchMove: false,
+            autoplay: {
+                delay: 3000,
+            },
+            breakpoints: {
+                // when window width is >= 320px
+                320: {
+                    slidesPerView: 1,
+                    spaceBetween: 20
+                },
+                // when window width is >= 480px
+                480: {
+                    slidesPerView: 2,
+                    spaceBetween: 10
+                },
+                // when window width is >= 640px
+                640: {
+                    slidesPerView: 3,
+                    spaceBetween: 20
+                },
+                1024: {
+                    slidesPerView: 4,
+                    spaceBetween: 20
+                }
             }
         });
     }
