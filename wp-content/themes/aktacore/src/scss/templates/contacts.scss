@@ -1,38 +1,49 @@
 .contacts{
-  background-color: #4184C5;
+  background-color: #F5F7FB;
   padding-top: 8rem;
+  padding-bottom: 8rem;
   margin-top: 7.1rem;
   @media all and (max-width: 1800px){
     padding-top: 70px;
+    padding-bottom: 70px;
   }
   @media all and (max-width: 1600px){
     padding-top: 65px;
+    padding-bottom: 65px;
   }
   @media all and (max-width: 1440px){
     padding-top: 60px;
+    padding-bottom: 60px;
   }
   @media all and (max-width: 1280px){
     padding-top: 55px;
+    padding-bottom: 55px;
   }
   @media all and (max-width: 1024px){
     padding-top: 50px;
+    padding-bottom: 50px;
   }
   @media all and (max-width: 768px){
     padding-top: 45px;
+    padding-bottom: 45px;
   }
   @media all and (max-width: 500px){
     padding-top: 40px;
+    padding-bottom: 40px;
   }
   &__container{
 
   }
   &__title{
-    color: #FFFFFF;
+    color: #112444;
     text-align: left;
     margin-bottom: 4.2rem;
+    span{
+      color: #1FAB7C;
+    }
   }
   &__untitle{
-    color: #FFFFFF;
+    color: #A7BEDE;
     text-align: left;
   }
   &__list{
@@ -61,8 +72,8 @@
       left: 0;
     }
     a, p{
-      color: #FFF;
-      font-size: 1.8rem;
+      color: #112444;
+      font-size: 1.5rem;
       font-weight: 400;
       line-height: 120%;
       margin-bottom: 0;
@@ -81,6 +92,7 @@
     border-radius: 10px;
     overflow: hidden;
     min-height: 33.3rem;
+    border: 1px solid #1FAB7C;
     @media all and (max-width: 960px){
       height: 200px;
     }

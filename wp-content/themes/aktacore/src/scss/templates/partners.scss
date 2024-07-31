@@ -27,6 +27,12 @@
   &__list{
     margin-top: 6rem;
   }
+  &__title{
+    color: #112444;
+    span{
+      color: #1FAB7C;
+    }
+  }
   &__item{
     height: auto;
     display: flex;

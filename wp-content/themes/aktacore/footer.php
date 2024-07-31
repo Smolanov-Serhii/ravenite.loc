@@ -15,7 +15,7 @@
 		<div class="footer__top">
 			<div class="main-container">
 				<div class="footer__logo">
-					<img src="<?php echo get_template_directory_uri() . '/img/templates/header/Logo.svg'?>" alt="">
+					<img src="<?php echo get_template_directory_uri() . '/img/templates/header/Logo.svg' ?>" alt="">
 				</div>
 				<nav id="footer__nav" class="footer__nav">
 					<?php

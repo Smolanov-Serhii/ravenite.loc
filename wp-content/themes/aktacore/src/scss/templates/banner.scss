@@ -71,6 +71,9 @@
     text-transform: uppercase;
     margin-bottom: 0;
     max-width: 784px;
+    span{
+      color: #1FAB7C;
+    }
     @media all and (max-width: 1800px){
       font-size: 90px;
     }

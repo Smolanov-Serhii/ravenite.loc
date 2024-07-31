@@ -19,7 +19,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;900&display=swap" rel="stylesheet">
 	<?php wp_head(); ?>
-
+    
 </head>
 <script>
     window.onload = function () {
@@ -45,7 +45,7 @@
             <div class="header__logo">
                 <a class="header__logo-container" href="<?php echo get_home_url()?>">
                     <img class="header__logo-move" src="<?php echo get_template_directory_uri() . '/img/templates/header/Logo-move.svg'?>" alt="">
-                    <img class="header__logo-main" src="<?php echo get_template_directory_uri() . '/img/templates/header/Logo.svg'?>" alt="">
+                    <img class="header__logo-main" src="<?php echo get_template_directory_uri() . '/img/templates/header/Logo.svg' ?>" alt="">
                 </a>
             </div>
             <nav id="header__nav" class="header__nav">
